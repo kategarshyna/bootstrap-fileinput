@@ -1872,7 +1872,7 @@
                 $remove.removeAttr('disabled');
                 self._handler($remove, 'click', function () {
                     var id = $thumb.attr('id'),
-                        out = self._raise('filesuccessremove', [id, $thumb.attr('data-fileindex')]);
+                        out = self._raise('filesuccessremove', [id, $thumb.attr('data-fileindex'), $thumb]);
                     $h.cleanMemory($thumb);
                     if (out === false) {
                         return;
@@ -2015,7 +2015,7 @@
                             self._initUploadSuccess(data, $thumb, allFiles);
                             self._setProgress(101, $prog);
                         }
-                        self._raise('fileuploaded', [outData, pid, i]);
+                        self._raise('fileuploaded', [outData, pid, i, $thumb]);
                         if (!allFiles) {
                             self.updateStack(i, undefined);
                         } else {
